@@ -1,0 +1,48 @@
+/* =========================================================
+   Triple E Services — design tokens
+   Palette: red (action), green (brand), charcoal (text), white.
+   ========================================================= */
+:root {
+  /* Brand */
+  --red: #D71920;
+  --red-d: #B5131A;          /* hover / pressed */
+  --red-soft: #FDECEC;       /* tint for badges */
+
+  --green: #08783D;          /* primary brand green */
+  --green-d: #065F30;        /* hover, dark UI */
+  --green-dd: #04381C;       /* dark sections */
+  --green-soft: #E7F2EB;     /* tint for chips / icon wells */
+  --green-line: #CFE3D6;
+
+  /* Neutrals */
+  --white: #FFFFFF;
+  --ink: #222222;            /* headings + body on light */
+  --ink-2: #4B514E;          /* secondary text */
+  --mist: #F7F9F7;           /* light section background */
+  --line: #E1E8E3;
+  --steel: #7B847F;
+  --danger: #C4251C;
+
+  /* Legacy names kept so older rules keep resolving */
+  --electric: var(--red);
+  --electric-d: var(--red-d);
+  --electric-soft: var(--green-soft);
+
+  --font-head: 'Sora', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  --radius: 16px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 2px 10px rgba(16, 36, 24, 0.06);
+  --shadow: 0 14px 34px rgba(16, 36, 24, 0.12);
+  --shadow-lg: 0 26px 60px rgba(8, 30, 18, 0.24);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --header-h: 84px;
+  --topbar-h: 38px;
+  --maxw: 1240px;
+  --gutter: 16px;
+}
+@media (min-width: 768px) {
+  :root { --gutter: 28px; }
+}
