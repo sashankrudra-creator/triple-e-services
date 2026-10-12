@@ -5,11 +5,9 @@ import Button from '../ui/Button';
 import { heroWords } from '../../data/company';
 import { useApp } from '../../context/AppContext';
 
-// Existing hero photos from /public/images.
+// Hero photo from /public/images.
 const slides = [
   { src: '/images/herosection1.png', pos: 'center' },
-  { src: '/images/hero.jpg', pos: 'center 30%' },
-  { src: '/images/herosection2.jpg', pos: 'center 35%' },
 ];
 
 export default function Hero() {
@@ -61,23 +59,25 @@ export default function Hero() {
             Comprehensive O&amp;M, electrical EPC and expert manpower for power plants and industry across India.
           </p>
           <div className="hero__btns">
-            <Button size="lg" iconRight={<ArrowRight size={18} />} onClick={() => document.getElementById('services-grid')?.scrollIntoView({ behavior: 'smooth' })}>Explore Services</Button>
-            <Button size="lg" variant="ghost" to="/projects">View Projects</Button>
-            <Button size="lg" variant="outline" onClick={() => openQuote()}>Get a Quote</Button>
+            <Button size="md" iconRight={<ArrowRight size={16} />} onClick={() => document.getElementById('services-grid')?.scrollIntoView({ behavior: 'smooth' })}>Explore Services</Button>
+            <Button size="md" variant="ghost" to="/projects">View Projects</Button>
+            <Button size="md" variant="outline" onClick={() => openQuote()}>Get a Quote</Button>
           </div>
         </motion.div>
       </div>
-      <div className="container hero__ctrl">
-        <div className="hero__dots" role="group" aria-label="Choose slide">
-          {slides.map((s, k) => (
-            <button key={s.src} className={`hero__dot ${k === slide ? 'is-active' : ''}`} onClick={() => go(k)} aria-label={`Show slide ${k + 1}`} aria-current={k === slide ? 'true' : undefined} />
-          ))}
+      {slides.length > 1 && (
+        <div className="container hero__ctrl">
+          <div className="hero__dots" role="group" aria-label="Choose slide">
+            {slides.map((s, k) => (
+              <button key={s.src} className={`hero__dot ${k === slide ? 'is-active' : ''}`} onClick={() => go(k)} aria-label={`Show slide ${k + 1}`} aria-current={k === slide ? 'true' : undefined} />
+            ))}
+          </div>
+          <div className="hero__arrows">
+            <button className="hero__arrow" onClick={() => go(slide - 1)} aria-label="Previous slide"><ChevronLeft size={20} aria-hidden="true" /></button>
+            <button className="hero__arrow" onClick={() => go(slide + 1)} aria-label="Next slide"><ChevronRight size={20} aria-hidden="true" /></button>
+          </div>
         </div>
-        <div className="hero__arrows">
-          <button className="hero__arrow" onClick={() => go(slide - 1)} aria-label="Previous slide"><ChevronLeft size={20} aria-hidden="true" /></button>
-          <button className="hero__arrow" onClick={() => go(slide + 1)} aria-label="Next slide"><ChevronRight size={20} aria-hidden="true" /></button>
-        </div>
-      </div>
+      )}
     </section>
   );
 }
